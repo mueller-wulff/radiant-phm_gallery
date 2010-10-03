@@ -8,7 +8,7 @@ a radiant extension to create big galleries direct from filesystem folders with 
 - create fullsize subpage with next/previous and back functions
 - different pictures for thumb and fullsize
 
-for full description go to http://over9000.org/rails/phm_gallery-a-gallery-generator-for-radiant
+for full description & explantions go to http://over9000.org/rails/phm_gallery-a-gallery-generator-for-radiant
 
 === Dependencies
 
@@ -31,15 +31,38 @@ or via git
 
 === Setup
 
-0. (optional) set the exif caption of your pictures
+0. (optional) set the exif caption of your pictures (the 'headline' tag to be exact)
 1. name your pictures according to the convention someiamge_thumb / someimage_big (so pic01_big, pic01_thumb, pic02_big, pic_thumb etc.)
 2. upload your pictures to a subfolder of /path/to/radiant/public (for example "pics")
 
 === Usage
 
 go to the page where you want the thumbnail gallery to appear and enter
-  <r:phm_thumbs path="/galerien/test" single_path="/stories/hot-rod-decadence/picture" wrap="|" >Bla</r:phm_thumbs>
+  <r:phm_thumbs path="/path/to/gallery" single_path="/page/where/single/fullsize/image/will/appear" wrap="|" >Gallery</r:phm_thumbs>
 
+the parameter path should be clear (in our example above it would be "/pics")
+
+the parameter wrap gives you the possiblity to wrap every single thumbnail with smth. (i.e. divs or spans) the | is the postion of the image tag
+so: wrap="<div class='thumbnail'>|</div>" would create an according div around every thumb.
+
+since we don't use any fancy lightbox effects to display the fullsize images we need a page to display the "single view"
+
+so go ahead an create a new page in your radiant an give it fitting name
+take the slug of it  (i.e. "/pics/single_view") and paste it into the 'single_path' parameter from earlier
+
+on the single_view page you have several tags to create a custom single view:
+
+to display the "_big" picture
+  <r:phm_single_pic>Picture</r:phm_single_pic>
+
+to display a "prev" link
+  <r:phm_prev_link>&laquo; prev</r:phm_prev_link>
+
+to display a "next" link
+  <r:phm_next_link >next &raquo;</r:phm_next_link>
+
+to display the caption of a picture (the exif stuff from before)
+  <r:phm_subtitle >Caption</r:phm_subtitle>
 
 === License
 
