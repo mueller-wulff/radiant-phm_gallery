@@ -12,7 +12,7 @@ for full description & explantions go to http://over9000.org/rails/phm_gallery-a
 
 === Dependencies
 
-you need 'mini_exiftool' in order to use the automatic caption feature.
+you need the 'mini_exiftool' gem in order to use the automatic caption feature.
 
 === Compatibility
 
@@ -43,7 +43,9 @@ go to the page where you want the thumbnail gallery to appear and enter
 the parameter path should be clear (in our example above it would be "/pics")
 
 the parameter wrap gives you the possiblity to wrap every single thumbnail with smth. (i.e. divs or spans) the | is the postion of the image tag
-so: wrap="<div class='thumbnail'>|</div>" would create an according div around every thumb.
+so: 
+  wrap="<div class='thumbnail'>|</div>"
+would create an according div around every thumb.
 
 since we don't use any fancy lightbox effects to display the fullsize images we need a page to display the "single view"
 
